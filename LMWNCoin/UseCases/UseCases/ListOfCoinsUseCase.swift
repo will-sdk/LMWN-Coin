@@ -1,8 +1,7 @@
-//
-//  ListOfCoinsUseCase.swift
-//  UseCases
-//
-//  Created by kowit nanumchill on 27/3/2567 BE.
-//
 
-import Foundation
+import RxSwift
+
+public protocol ListOfCoinsUseCase {
+    func listOfCoins() -> Observable<[Coins]>
+}
+
