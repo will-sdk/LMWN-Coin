@@ -18,6 +18,7 @@
 		9EE962262BB3F18C0011EE6C /* UseCases.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE9621F2BB3F18C0011EE6C /* UseCases.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9EE9622F2BB3F2280011EE6C /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE9622E2BB3F2280011EE6C /* UseCaseProvider.swift */; };
 		9EE962312BB3F2600011EE6C /* ListOfCoinsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962302BB3F2600011EE6C /* ListOfCoinsUseCase.swift */; };
+		9EE962332BB3F3780011EE6C /* Coins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962322BB3F3780011EE6C /* Coins.swift */; };
 		ACD01D5D720040D8776BBEA3 /* Pods_LMWNCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26FF0537FC4ADDB7C3418B3 /* Pods_LMWNCoin.framework */; };
 		D8727F98085AF1218C9A216B /* Pods_UseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F04ED1E6AC01B120FD1FDC6 /* Pods_UseCases.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		9EE962212BB3F18C0011EE6C /* UseCases.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UseCases.h; sourceTree = "<group>"; };
 		9EE9622E2BB3F2280011EE6C /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 		9EE962302BB3F2600011EE6C /* ListOfCoinsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfCoinsUseCase.swift; sourceTree = "<group>"; };
+		9EE962322BB3F3780011EE6C /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
 		B26FF0537FC4ADDB7C3418B3 /* Pods_LMWNCoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LMWNCoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D095A95679A59D230E7BF710 /* Pods-LMWNCoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoinTests.debug.xcconfig"; path = "Target Support Files/Pods-LMWNCoinTests/Pods-LMWNCoinTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7BCB7ADFA7089C746A2FB96 /* Pods-UseCases.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCases.debug.xcconfig"; path = "Target Support Files/Pods-UseCases/Pods-UseCases.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		9EE9622D2BB3F1CD0011EE6C /* Entries */ = {
 			isa = PBXGroup;
 			children = (
+				9EE962322BB3F3780011EE6C /* Coins.swift */,
 			);
 			path = Entries;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 			files = (
 				9EE9622F2BB3F2280011EE6C /* UseCaseProvider.swift in Sources */,
 				9EE962312BB3F2600011EE6C /* ListOfCoinsUseCase.swift in Sources */,
+				9EE962332BB3F3780011EE6C /* Coins.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
