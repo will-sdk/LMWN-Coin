@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CAC29F39411358BB879EFB4 /* Pods_LMWNCoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0E9269E5D84ED3450227D0 /* Pods_LMWNCoinTests.framework */; };
 		9EE961EC2BB3D6440011EE6C /* LMWNCoinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE961EB2BB3D6440011EE6C /* LMWNCoinApp.swift */; };
 		9EE961EE2BB3D6440011EE6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE961ED2BB3D6440011EE6C /* ContentView.swift */; };
 		9EE961F02BB3D6460011EE6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE961EF2BB3D6460011EE6C /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 		9EE961FE2BB3D6470011EE6C /* LMWNCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE961FD2BB3D6470011EE6C /* LMWNCoinTests.swift */; };
 		9EE962082BB3D6470011EE6C /* LMWNCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962072BB3D6470011EE6C /* LMWNCoinUITests.swift */; };
 		9EE9620A2BB3D6470011EE6C /* LMWNCoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962092BB3D6470011EE6C /* LMWNCoinUITestsLaunchTests.swift */; };
+		ACD01D5D720040D8776BBEA3 /* Pods_LMWNCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26FF0537FC4ADDB7C3418B3 /* Pods_LMWNCoin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0598984487C6CF9190CD741F /* Pods-LMWNCoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoinTests.release.xcconfig"; path = "Target Support Files/Pods-LMWNCoinTests/Pods-LMWNCoinTests.release.xcconfig"; sourceTree = "<group>"; };
+		3B0E9269E5D84ED3450227D0 /* Pods_LMWNCoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LMWNCoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4895A8D5D512BF088FCBBD3B /* Pods-LMWNCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoin.debug.xcconfig"; path = "Target Support Files/Pods-LMWNCoin/Pods-LMWNCoin.debug.xcconfig"; sourceTree = "<group>"; };
 		9EE961E82BB3D6440011EE6C /* LMWNCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMWNCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE961EB2BB3D6440011EE6C /* LMWNCoinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMWNCoinApp.swift; sourceTree = "<group>"; };
 		9EE961ED2BB3D6440011EE6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +50,9 @@
 		9EE962032BB3D6470011EE6C /* LMWNCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LMWNCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE962072BB3D6470011EE6C /* LMWNCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMWNCoinUITests.swift; sourceTree = "<group>"; };
 		9EE962092BB3D6470011EE6C /* LMWNCoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMWNCoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B26FF0537FC4ADDB7C3418B3 /* Pods_LMWNCoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LMWNCoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D095A95679A59D230E7BF710 /* Pods-LMWNCoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoinTests.debug.xcconfig"; path = "Target Support Files/Pods-LMWNCoinTests/Pods-LMWNCoinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FEF25377B45381E6DC5CDD6F /* Pods-LMWNCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoin.release.xcconfig"; path = "Target Support Files/Pods-LMWNCoin/Pods-LMWNCoin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD01D5D720040D8776BBEA3 /* Pods_LMWNCoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CAC29F39411358BB879EFB4 /* Pods_LMWNCoinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +82,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C1A951DA244F63005848021 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4895A8D5D512BF088FCBBD3B /* Pods-LMWNCoin.debug.xcconfig */,
+				FEF25377B45381E6DC5CDD6F /* Pods-LMWNCoin.release.xcconfig */,
+				D095A95679A59D230E7BF710 /* Pods-LMWNCoinTests.debug.xcconfig */,
+				0598984487C6CF9190CD741F /* Pods-LMWNCoinTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9EE961DF2BB3D6440011EE6C = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +100,8 @@
 				9EE961FC2BB3D6470011EE6C /* LMWNCoinTests */,
 				9EE962062BB3D6470011EE6C /* LMWNCoinUITests */,
 				9EE961E92BB3D6440011EE6C /* Products */,
+				5C1A951DA244F63005848021 /* Pods */,
+				E4C24787F04CAB1779BA4C9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +152,15 @@
 			path = LMWNCoinUITests;
 			sourceTree = "<group>";
 		};
+		E4C24787F04CAB1779BA4C9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B26FF0537FC4ADDB7C3418B3 /* Pods_LMWNCoin.framework */,
+				3B0E9269E5D84ED3450227D0 /* Pods_LMWNCoinTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -136,9 +168,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EE9620D2BB3D6470011EE6C /* Build configuration list for PBXNativeTarget "LMWNCoin" */;
 			buildPhases = (
+				F3C6BAFC82E246B2934721F0 /* [CP] Check Pods Manifest.lock */,
 				9EE961E42BB3D6440011EE6C /* Sources */,
 				9EE961E52BB3D6440011EE6C /* Frameworks */,
 				9EE961E62BB3D6440011EE6C /* Resources */,
+				F2A452E8260E03A7D7D16FEF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EE962102BB3D6470011EE6C /* Build configuration list for PBXNativeTarget "LMWNCoinTests" */;
 			buildPhases = (
+				5C37C045A6DB2042C5B645ED /* [CP] Check Pods Manifest.lock */,
 				9EE961F52BB3D6470011EE6C /* Sources */,
 				9EE961F62BB3D6470011EE6C /* Frameworks */,
 				9EE961F72BB3D6470011EE6C /* Resources */,
+				D9BAEFA68DAF2B076E02D35B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +289,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C37C045A6DB2042C5B645ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LMWNCoinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9BAEFA68DAF2B076E02D35B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LMWNCoinTests/Pods-LMWNCoinTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LMWNCoinTests/Pods-LMWNCoinTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LMWNCoinTests/Pods-LMWNCoinTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2A452E8260E03A7D7D16FEF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LMWNCoin/Pods-LMWNCoin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LMWNCoin/Pods-LMWNCoin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LMWNCoin/Pods-LMWNCoin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3C6BAFC82E246B2934721F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LMWNCoin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9EE961E42BB3D6440011EE6C /* Sources */ = {
@@ -413,6 +530,7 @@
 		};
 		9EE9620E2BB3D6470011EE6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4895A8D5D512BF088FCBBD3B /* Pods-LMWNCoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -421,6 +539,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LMWNCoin/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -432,7 +551,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.3;
@@ -449,6 +568,7 @@
 		};
 		9EE9620F2BB3D6470011EE6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEF25377B45381E6DC5CDD6F /* Pods-LMWNCoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -457,6 +577,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LMWNCoin/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -468,7 +589,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.3;
@@ -485,6 +606,7 @@
 		};
 		9EE962112BB3D6470011EE6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D095A95679A59D230E7BF710 /* Pods-LMWNCoinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -507,6 +629,7 @@
 		};
 		9EE962122BB3D6470011EE6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0598984487C6CF9190CD741F /* Pods-LMWNCoinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
