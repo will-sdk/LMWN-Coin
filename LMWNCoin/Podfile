@@ -29,3 +29,8 @@ target 'LMWNCoin' do
     test_pods
   end
 end
+
+target 'UseCases' do
+  use_frameworks!
+  rx_swift
+end
