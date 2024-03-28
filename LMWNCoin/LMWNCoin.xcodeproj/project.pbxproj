@@ -23,6 +23,11 @@
 		9EE9623C2BB3F77D0011EE6C /* Repositories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE9623B2BB3F77D0011EE6C /* Repositories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9EE9623F2BB3F77D0011EE6C /* Repositories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE962392BB3F77D0011EE6C /* Repositories.framework */; };
 		9EE962402BB3F77D0011EE6C /* Repositories.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE962392BB3F77D0011EE6C /* Repositories.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9EE962482BB3F9A70011EE6C /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962472BB3F9A70011EE6C /* UseCaseProvider.swift */; };
+		9EE9624A2BB3F9D10011EE6C /* ListOfCoinsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962492BB3F9D10011EE6C /* ListOfCoinsUseCase.swift */; };
+		9EE9624C2BB3FAF20011EE6C /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE9624B2BB3FAF20011EE6C /* RepositoryProvider.swift */; };
+		9EE9624E2BB3FB8F0011EE6C /* ListOfCoinsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE9624D2BB3FB8F0011EE6C /* ListOfCoinsRepository.swift */; };
+		9EE962502BB3FD510011EE6C /* GetCoinsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE9624F2BB3FD510011EE6C /* GetCoinsAPI.swift */; };
 		ACD01D5D720040D8776BBEA3 /* Pods_LMWNCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26FF0537FC4ADDB7C3418B3 /* Pods_LMWNCoin.framework */; };
 		D8727F98085AF1218C9A216B /* Pods_UseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F04ED1E6AC01B120FD1FDC6 /* Pods_UseCases.framework */; };
 /* End PBXBuildFile section */
@@ -97,6 +102,11 @@
 		9EE962322BB3F3780011EE6C /* Coins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coins.swift; sourceTree = "<group>"; };
 		9EE962392BB3F77D0011EE6C /* Repositories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Repositories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE9623B2BB3F77D0011EE6C /* Repositories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Repositories.h; sourceTree = "<group>"; };
+		9EE962472BB3F9A70011EE6C /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
+		9EE962492BB3F9D10011EE6C /* ListOfCoinsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfCoinsUseCase.swift; sourceTree = "<group>"; };
+		9EE9624B2BB3FAF20011EE6C /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
+		9EE9624D2BB3FB8F0011EE6C /* ListOfCoinsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfCoinsRepository.swift; sourceTree = "<group>"; };
+		9EE9624F2BB3FD510011EE6C /* GetCoinsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoinsAPI.swift; sourceTree = "<group>"; };
 		B26FF0537FC4ADDB7C3418B3 /* Pods_LMWNCoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LMWNCoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D095A95679A59D230E7BF710 /* Pods-LMWNCoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoinTests.debug.xcconfig"; path = "Target Support Files/Pods-LMWNCoinTests/Pods-LMWNCoinTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7BCB7ADFA7089C746A2FB96 /* Pods-UseCases.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseCases.debug.xcconfig"; path = "Target Support Files/Pods-UseCases/Pods-UseCases.debug.xcconfig"; sourceTree = "<group>"; };
@@ -247,9 +257,38 @@
 		9EE9623A2BB3F77D0011EE6C /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				9EE962442BB3F9580011EE6C /* UseCases */,
+				9EE962452BB3F9620011EE6C /* Service */,
+				9EE962462BB3F96B0011EE6C /* Repository */,
 				9EE9623B2BB3F77D0011EE6C /* Repositories.h */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		9EE962442BB3F9580011EE6C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				9EE962472BB3F9A70011EE6C /* UseCaseProvider.swift */,
+				9EE962492BB3F9D10011EE6C /* ListOfCoinsUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		9EE962452BB3F9620011EE6C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9EE9624D2BB3FB8F0011EE6C /* ListOfCoinsRepository.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9EE962462BB3F96B0011EE6C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				9EE9624B2BB3FAF20011EE6C /* RepositoryProvider.swift */,
+				9EE9624F2BB3FD510011EE6C /* GetCoinsAPI.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		E4C24787F04CAB1779BA4C9A /* Frameworks */ = {
@@ -410,6 +449,7 @@
 					};
 					9EE962382BB3F77D0011EE6C = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 					};
 				};
 			};
@@ -639,6 +679,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE962482BB3F9A70011EE6C /* UseCaseProvider.swift in Sources */,
+				9EE9624A2BB3F9D10011EE6C /* ListOfCoinsUseCase.swift in Sources */,
+				9EE9624E2BB3FB8F0011EE6C /* ListOfCoinsRepository.swift in Sources */,
+				9EE9624C2BB3FAF20011EE6C /* RepositoryProvider.swift in Sources */,
+				9EE962502BB3FD510011EE6C /* GetCoinsAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,6 +1076,7 @@
 			baseConfigurationReference = 2B973AFCB1E4AA5F4FA668CE /* Pods-Repositories.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1056,6 +1102,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1068,6 +1115,7 @@
 			baseConfigurationReference = FFE6D871B082D410EE0215F9 /* Pods-Repositories.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
