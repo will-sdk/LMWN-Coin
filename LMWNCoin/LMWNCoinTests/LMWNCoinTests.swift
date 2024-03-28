@@ -2,10 +2,11 @@
 //  LMWNCoinTests.swift
 //  LMWNCoinTests
 //
-//  Created by kowit nanumchill on 27/3/2567 BE.
+//  Created by kowit nanumchill on 28/3/2567 BE.
 //
 
 import XCTest
+@testable import LMWNCoin
 
 final class LMWNCoinTests: XCTestCase {
 
@@ -27,7 +28,7 @@ final class LMWNCoinTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
