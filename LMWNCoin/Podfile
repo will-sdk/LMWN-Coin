@@ -34,3 +34,9 @@ target 'UseCases' do
   use_frameworks!
   rx_swift
 end
+
+target 'Repositories' do
+    use_frameworks!
+    rx_swift
+    rx_cocoa
+end
