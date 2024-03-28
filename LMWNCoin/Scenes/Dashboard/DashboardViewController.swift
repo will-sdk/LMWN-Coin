@@ -18,7 +18,7 @@ class DashboardViewController: UIViewController {
     
     private func configureTableView() {
         tableView.refreshControl = UIRefreshControl()
-        tableView.estimatedRowHeight = 64
+        tableView.estimatedRowHeight = 102
         tableView.rowHeight = UITableView.automaticDimension
     }
     

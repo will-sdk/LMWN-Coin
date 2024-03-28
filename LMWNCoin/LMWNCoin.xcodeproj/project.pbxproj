@@ -19,10 +19,9 @@
 		9EE962CE2BB559F00011EE6C /* Repositories.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE962CD2BB559F00011EE6C /* Repositories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9EE962D12BB559F00011EE6C /* Repositories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE962CB2BB559F00011EE6C /* Repositories.framework */; };
 		9EE962D22BB559F00011EE6C /* Repositories.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE962CB2BB559F00011EE6C /* Repositories.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9EE962DE2BB55A090011EE6C /* ListOfCoinsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962D62BB55A090011EE6C /* ListOfCoinsRepository.swift */; };
 		9EE962DF2BB55A090011EE6C /* ListOfCoinsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962D82BB55A090011EE6C /* ListOfCoinsUseCase.swift */; };
 		9EE962E02BB55A090011EE6C /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962D92BB55A090011EE6C /* UseCaseProvider.swift */; };
-		9EE962E12BB55A090011EE6C /* GetCoinsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962DB2BB55A090011EE6C /* GetCoinsAPI.swift */; };
+		9EE962E12BB55A090011EE6C /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962DB2BB55A090011EE6C /* ServiceAPI.swift */; };
 		9EE962E22BB55A090011EE6C /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962DC2BB55A090011EE6C /* RepositoryProvider.swift */; };
 		9EE962F12BB55A7B0011EE6C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962E32BB55A7B0011EE6C /* Application.swift */; };
 		9EE962F22BB55A7B0011EE6C /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE962E52BB55A7B0011EE6C /* ActivityIndicator.swift */; };
@@ -42,6 +41,7 @@
 		9EE963132BB55EE70011EE6C /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE963122BB55EE70011EE6C /* DashboardTableViewCell.swift */; };
 		9EE963152BB55F150011EE6C /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE963142BB55F150011EE6C /* DashboardViewModel.swift */; };
 		9EE963172BB55F520011EE6C /* DashboardItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE963162BB55F520011EE6C /* DashboardItemViewModel.swift */; };
+		9EE9631A2BB566CF0011EE6C /* GetCoinsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE963192BB566CF0011EE6C /* GetCoinsAPI.swift */; };
 		A0CF69F03EDD786443FED2D2 /* Pods_Repositories.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F1DE054E420C2DDBAFF2BF7 /* Pods_Repositories.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,10 +110,9 @@
 		9EE9629A2BB558AF0011EE6C /* LMWNCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LMWNCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE962CB2BB559F00011EE6C /* Repositories.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Repositories.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE962CD2BB559F00011EE6C /* Repositories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Repositories.h; sourceTree = "<group>"; };
-		9EE962D62BB55A090011EE6C /* ListOfCoinsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfCoinsRepository.swift; sourceTree = "<group>"; };
 		9EE962D82BB55A090011EE6C /* ListOfCoinsUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfCoinsUseCase.swift; sourceTree = "<group>"; };
 		9EE962D92BB55A090011EE6C /* UseCaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
-		9EE962DB2BB55A090011EE6C /* GetCoinsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCoinsAPI.swift; sourceTree = "<group>"; };
+		9EE962DB2BB55A090011EE6C /* ServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
 		9EE962DC2BB55A090011EE6C /* RepositoryProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
 		9EE962E32BB55A7B0011EE6C /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		9EE962E52BB55A7B0011EE6C /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -132,6 +131,7 @@
 		9EE963122BB55EE70011EE6C /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		9EE963142BB55F150011EE6C /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		9EE963162BB55F520011EE6C /* DashboardItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardItemViewModel.swift; sourceTree = "<group>"; };
+		9EE963192BB566CF0011EE6C /* GetCoinsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoinsAPI.swift; sourceTree = "<group>"; };
 		ACF4BCBF36A9434A695B3683 /* Pods_UseCases.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UseCases.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C33B89D8DCC63616E4D42E52 /* Pods-LMWNCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoin.release.xcconfig"; path = "Target Support Files/Pods-LMWNCoin/Pods-LMWNCoin.release.xcconfig"; sourceTree = "<group>"; };
 		CDC36663AF850D9EB0029615 /* Pods-LMWNCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoin.debug.xcconfig"; path = "Target Support Files/Pods-LMWNCoin/Pods-LMWNCoin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,27 +234,19 @@
 		9EE962CC2BB559F00011EE6C /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				9EE962DD2BB55A090011EE6C /* Repository */,
-				9EE962D72BB55A090011EE6C /* Service */,
 				9EE962DA2BB55A090011EE6C /* UseCases */,
+				9EE962DD2BB55A090011EE6C /* Repository */,
+				9EE963182BB564BB0011EE6C /* API */,
 				9EE962CD2BB559F00011EE6C /* Repositories.h */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		9EE962D72BB55A090011EE6C /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				9EE962D62BB55A090011EE6C /* ListOfCoinsRepository.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		9EE962DA2BB55A090011EE6C /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				9EE962D82BB55A090011EE6C /* ListOfCoinsUseCase.swift */,
 				9EE962D92BB55A090011EE6C /* UseCaseProvider.swift */,
+				9EE962D82BB55A090011EE6C /* ListOfCoinsUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -262,7 +254,6 @@
 		9EE962DD2BB55A090011EE6C /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				9EE962DB2BB55A090011EE6C /* GetCoinsAPI.swift */,
 				9EE962DC2BB55A090011EE6C /* RepositoryProvider.swift */,
 			);
 			path = Repository;
@@ -345,6 +336,15 @@
 				9EE9630D2BB55B3F0011EE6C /* Coins.swift */,
 			);
 			path = Entries;
+			sourceTree = "<group>";
+		};
+		9EE963182BB564BB0011EE6C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9EE962DB2BB55A090011EE6C /* ServiceAPI.swift */,
+				9EE963192BB566CF0011EE6C /* GetCoinsAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		A00B42BC8B26C1CCB4181271 /* Frameworks */ = {
@@ -751,10 +751,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EE962DE2BB55A090011EE6C /* ListOfCoinsRepository.swift in Sources */,
 				9EE962E22BB55A090011EE6C /* RepositoryProvider.swift in Sources */,
 				9EE962E02BB55A090011EE6C /* UseCaseProvider.swift in Sources */,
-				9EE962E12BB55A090011EE6C /* GetCoinsAPI.swift in Sources */,
+				9EE962E12BB55A090011EE6C /* ServiceAPI.swift in Sources */,
+				9EE9631A2BB566CF0011EE6C /* GetCoinsAPI.swift in Sources */,
 				9EE962DF2BB55A090011EE6C /* ListOfCoinsUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

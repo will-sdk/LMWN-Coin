@@ -11,6 +11,6 @@ public final class UseCaseProvider: UseCases.UseCaseProvider {
     }
     
     public func makeListOfCoinsUseCase() -> UseCases.ListOfCoinsUseCase {
-        return ListOfCoinsUseCase(repo: repositoryProvider.makeListOfCoinsRepository())
+        return ListOfCoinsUseCase(service: repositoryProvider.makeListOfCoinsRepository())
     }
 }
