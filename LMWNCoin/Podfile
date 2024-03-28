@@ -13,6 +13,18 @@ def rx_test
   pod 'RxTest'
 end
 
+def alamofire
+  pod 'Alamofire'
+end
+
+def rx_alamofire
+  pod 'RxAlamofire'
+end
+
+def sbweb_image
+  pod 'SDWebImage', '~> 5.0'
+end
+
 def test_pods
   rx_cocoa
   rx_swift
@@ -39,4 +51,7 @@ target 'Repositories' do
     use_frameworks!
     rx_swift
     rx_cocoa
+    alamofire
+    rx_alamofire
+    sbweb_image
 end
