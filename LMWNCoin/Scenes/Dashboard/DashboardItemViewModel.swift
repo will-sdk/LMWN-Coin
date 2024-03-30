@@ -7,9 +7,10 @@ final class DashboardItemViewModel   {
     let subtitle : String
     let change: String
     let thumbnail: URL?
+    let isQuery: Bool
     
     let coin: Coins?
-    init (with coin: Coins?) {
+    init (with coin: Coins?, isQuery: Bool) {
         self.coin = coin
         self.title = coin?.name ?? "N/A"
         self.subtitle = coin?.symbol ?? "N/A"
@@ -19,5 +20,6 @@ final class DashboardItemViewModel   {
             self.change = "N/A"
         }
         self.thumbnail = URL(string: coin?.iconUrl ?? "")
+        self.isQuery = isQuery
     }
 }
