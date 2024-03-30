@@ -16,26 +16,13 @@ final class Application {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let footballNavigationController = UINavigationController()
-        footballNavigationController.tabBarItem = UITabBarItem(title: "Football",
-                                                               image: UIImage(named: "Box"),
-                                                               selectedImage: nil)
         
         let footballNavigator = DefaultDashboardNavigator(
             navigationController: footballNavigationController,
             storyBoard: storyboard,
             usecase: useCaseProvider)
         
-        let tennisNavigationController = UINavigationController()
-        tennisNavigationController.tabBarItem = UITabBarItem(title: "Tennis",
-                                                             image: UIImage(named: "Toolbox"),
-                                                             selectedImage: nil)
-        
-        
-        let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [
-            footballNavigationController
-        ]
-        window.rootViewController = tabBarController
+        window.rootViewController = footballNavigationController
         window.makeKeyAndVisible()
         footballNavigator.toFixture()
     }

@@ -14,8 +14,8 @@ public final class ListOfCoinsUseCase: UseCases.ListOfCoinsUseCase {
         self.service = service
     }
     
-    public func listOfCoins() -> Observable<[Coins]> {
-        let fetchListOfCoins = service.fetchCoins()
+    public func listOfCoins(scopeLimit: String, search: String) -> Observable<[Coins]> {
+        let fetchListOfCoins = service.fetchCoins(scopeLimit: scopeLimit, search: search)
             .map { result -> [Coins] in
                 let coinsArray = result.data.coins.map { item in
                     Coins(symbol: item.symbol ?? "",

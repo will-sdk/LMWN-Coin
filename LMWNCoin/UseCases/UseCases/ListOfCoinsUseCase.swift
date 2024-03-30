@@ -2,6 +2,6 @@
 import RxSwift
 
 public protocol ListOfCoinsUseCase {
-    func listOfCoins() -> Observable<[Coins]>
+    func listOfCoins(scopeLimit: String, search: String) -> Observable<[Coins]>
 }
 

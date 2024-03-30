@@ -10,7 +10,7 @@ public final class GetCoinsAPI {
         self.serviceAPI = serviceAPI
     }
     
-    public func fetchCoins() -> Observable<CoinsResult> {
-        return serviceAPI.getCoinsItem()
+    public func fetchCoins(scopeLimit: String, search: String) -> Observable<CoinsResult> {
+        return serviceAPI.getCoinsItem(scopeLimit: scopeLimit, search: search)
     }
 }
