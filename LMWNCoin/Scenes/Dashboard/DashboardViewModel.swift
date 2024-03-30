@@ -12,7 +12,7 @@ final class DashboardViewModel: ViewModelType {
     struct Output {
         let fetching: Driver<Bool>
         let coins: Driver<[DashboardItemViewModel]>
-        let selectedCoin: Driver<Coins>
+        let selectedCoin: Driver<DashboardItemViewModel>
         let error: Driver<Error>
     }
 
@@ -39,8 +39,8 @@ final class DashboardViewModel: ViewModelType {
         let fetching = activityIndicator.asDriver()
         let errors = errorTracker.asDriver()
         let selectedCoin = input.selection
-            .withLatestFrom(coins) { (indexPath, coins) -> Coins in
-                return coins[indexPath.row].coin
+            .withLatestFrom(coins) { (indexPath, coins) -> DashboardItemViewModel in
+                return coins[indexPath.row]
             }
             .do(onNext: navigator.toDetail)
         

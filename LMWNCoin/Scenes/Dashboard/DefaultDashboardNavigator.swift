@@ -4,7 +4,7 @@ import UseCases
 import SafariServices
 
 protocol DashboardNavigator {
-    func toDetail(_ coin: Coins)
+    func toDetail(_ dashboardItemViewModel: DashboardItemViewModel?)
 }
 
 class DefaultDashboardNavigator: DashboardNavigator {
@@ -26,7 +26,11 @@ class DefaultDashboardNavigator: DashboardNavigator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func toDetail(_ coin: Coins) {
-        
+    func toDetail(_ dashboardItemViewModel: DashboardItemViewModel?) {
+        let navigator = DefaultDetailNavigator(navigationController: navigationController)
+        let viewModel = DetailViewModel(dashboardItem: dashboardItemViewModel, navigator: navigator)
+        let vc = storyBoard.instantiateViewController(ofType: DetailViewController.self)
+        vc.viewModel = viewModel
+        navigationController.present(vc, animated: true)
     }
 }
