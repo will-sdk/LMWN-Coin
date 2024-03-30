@@ -26,7 +26,7 @@ def sbweb_image
 end
 
 def svgkit_image
-  pod 'SVGKit', '~> 3.0'
+
 end
 
 def test_pods
