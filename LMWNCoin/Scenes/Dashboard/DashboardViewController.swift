@@ -13,9 +13,12 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var tryAgain: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var topthreeCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        configureCollectionView()
         bindViewModel()
     }
     
@@ -25,6 +28,14 @@ class DashboardViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         loadmoreView.isHidden = true
         tryAgainView.isHidden = true
+    }
+    
+    private func configureCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.itemSize = CGSize(width: 110, height: 140)
+        topthreeCollectionView.collectionViewLayout = layout
     }
     
     private func bindViewModel() {
@@ -77,6 +88,18 @@ class DashboardViewController: UIViewController {
             cell.bind(viewModel)
         }.disposed(by: disposeBag)
         
+        output.topthreeCoins.drive(topthreeCollectionView.rx.items(cellIdentifier: TopThreeCollectionViewCell.reuseID, cellType: TopThreeCollectionViewCell.self)) { cv, viewModel, cell in
+                cell.bind(viewModel)
+            }.disposed(by: disposeBag)
+        
+        output.topthreeCoins
+                .map { $0.isEmpty }
+                .drive(onNext: { [weak self] isEmpty in
+                    guard let self = self else { return }
+                    topthreeCollectionView.frame.size.height = isEmpty ? 0 : 140
+                    self.view.layoutIfNeeded()
+                })
+                .disposed(by: disposeBag)
         output.fetching
             .drive(tableView.refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
@@ -125,5 +148,3 @@ extension DashboardViewController: UISearchBarDelegate{
         }
     }
 }
-
-

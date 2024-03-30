@@ -17,6 +17,7 @@ final class DashboardViewModel: ViewModelType {
     struct Output {
         let fetching: Driver<Bool>
         let refresh: Driver<String>
+        let topthreeCoins: Driver<[DashboardItemViewModel]>
         let coins: Driver<[DashboardItemViewModel]>
         let selectedCoin: Driver<DashboardItemViewModel>
         let error: Driver<Error>
@@ -41,7 +42,7 @@ final class DashboardViewModel: ViewModelType {
                 .trackActivity(activityIndicator)
                 .trackError(errorTracker)
                 .asDriverOnErrorJustComplete()
-                .map { $0.map { DashboardItemViewModel(with: $0) } }
+                .map { $0.map { DashboardItemViewModel(with: $0, isQuery: query.isEmpty) } }
         }
         
         let nextPageCoins = input.loadMore
@@ -54,7 +55,7 @@ final class DashboardViewModel: ViewModelType {
                     .trackActivity(activityIndicator)
                     .trackError(errorTracker)
                     .asDriverOnErrorJustComplete()
-                    .map { $0.map { DashboardItemViewModel(with: $0) } }
+                    .map { $0.map { DashboardItemViewModel(with: $0, isQuery: query.isEmpty) } }
                     .do(onNext: { _ in
                         self.loadingMoreRelay.accept(false)
                     })
@@ -70,8 +71,23 @@ final class DashboardViewModel: ViewModelType {
             }
             .do(onNext: navigator.toDetail)
         
+        let topThreeCoins = coins
+            .map { coin -> [DashboardItemViewModel] in
+                guard let isQuery = coin.first?.isQuery, isQuery else {
+                    return []
+                }
+                
+                let sortedCoin = coin.sorted { coin1, coin2 in
+                    return coin1.coin?.rank ?? 0 < coin2.coin?.rank ?? 0
+                }
+                let topThree = Array(sortedCoin.prefix(3))
+                return topThree
+            }
+        
+        
         return Output(fetching: fetching,
                       refresh: input.trigger.asDriver(),
+                      topthreeCoins: topThreeCoins,
                       coins: coins,
                       selectedCoin: selectedCoin,
                       error: errors,

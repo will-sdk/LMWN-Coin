@@ -25,6 +25,10 @@ def sbweb_image
   pod 'SDWebImage', '~> 5.0'
 end
 
+def svgkit_image
+
+end
+
 def test_pods
   rx_cocoa
   rx_swift
@@ -35,7 +39,9 @@ target 'LMWNCoin' do
   use_frameworks!
   rx_cocoa
   rx_swift
-
+  svgkit_image
+  sbweb_image
+  
   target 'LMWNCoinTests' do
     inherit! :search_paths
     test_pods
@@ -53,5 +59,4 @@ target 'Repositories' do
     rx_cocoa
     alamofire
     rx_alamofire
-    sbweb_image
 end

@@ -1,16 +1,21 @@
+//
+//  TopThreeItemViewModel.swift
+//  LMWNCoin
+//
+//  Created by kowit nanumchill on 30/3/2567 BE.
+//
 
 import Foundation
 import UseCases
 
-final class DashboardItemViewModel   {
+final class TopThreeItemViewModel   {
     let title: String
     let subtitle : String
     let change: String
     let thumbnail: URL?
-    let isQuery: Bool
     
     let coin: Coins?
-    init (with coin: Coins?, isQuery: Bool) {
+    init (with coin: Coins?) {
         self.coin = coin
         self.title = coin?.name ?? "N/A"
         self.subtitle = coin?.symbol ?? "N/A"
@@ -20,6 +25,5 @@ final class DashboardItemViewModel   {
             self.change = "N/A"
         }
         self.thumbnail = URL(string: coin?.iconUrl ?? "")
-        self.isQuery = isQuery
     }
 }

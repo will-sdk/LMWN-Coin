@@ -15,8 +15,8 @@ final class DetailViewModel {
     func transform(input: Input) -> Output {
         let dashboardItem = input.trigger
             .map { [weak self] in
-                self?.dashboardItem ?? DashboardItemViewModel(with: nil) }
-            .asDriver(onErrorJustReturn: DashboardItemViewModel(with: nil))
+                self?.dashboardItem ?? DashboardItemViewModel(with: nil, isQuery: false) }
+            .asDriver(onErrorJustReturn: DashboardItemViewModel(with: nil, isQuery: false))
         
         return Output(dashboardItem: dashboardItem)
     }
