@@ -17,6 +17,7 @@ final class DashboardViewModel: ViewModelType {
     struct Output {
         let fetching: Driver<Bool>
         let refresh: Driver<String>
+        let topthreeCoins: Driver<[DashboardItemViewModel]>
         let coins: Driver<[DashboardItemViewModel]>
         let selectedCoin: Driver<DashboardItemViewModel>
         let error: Driver<Error>
@@ -70,8 +71,19 @@ final class DashboardViewModel: ViewModelType {
             }
             .do(onNext: navigator.toDetail)
         
+        let topThreeCoins = coins
+            .map { coin -> [DashboardItemViewModel] in
+                let sortedCoin = coin.sorted { coin1, coin2 in
+                    return coin1.coin?.rank ?? 0 < coin2.coin?.rank ?? 0
+                }
+                let topThree = Array(sortedCoin.prefix(3))
+                return topThree
+            }
+        
+        
         return Output(fetching: fetching,
                       refresh: input.trigger.asDriver(),
+                      topthreeCoins: topThreeCoins,
                       coins: coins,
                       selectedCoin: selectedCoin,
                       error: errors,
