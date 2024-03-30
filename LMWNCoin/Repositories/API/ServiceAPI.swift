@@ -17,8 +17,12 @@ final class ServiceAPI<T: Decodable> {
         self.header = ["x-access-token": "coinrankingc7c4f0eb97923be788350c20a065b7479fe83dfd7e920bf8"]
     }
     
-    func getCoinsItem() -> Observable<T> {
-        let absolutePath = "\(endpoint)"
+    func getCoinsItem(scopeLimit: String, search: String) -> Observable<T> {
+        
+        let scopeParam = scopeLimit.isEmpty ? "" : "?scopeLimit=\(scopeLimit)"
+        let searchParam = search.isEmpty ? "" : "&search=\(search)"
+        let absolutePath = "\(endpoint)\(scopeParam)\(searchParam)"
+        print("absolutePath \(absolutePath)")
         return RxAlamofire
             .request(.get, absolutePath, headers: header)
             .debug()
