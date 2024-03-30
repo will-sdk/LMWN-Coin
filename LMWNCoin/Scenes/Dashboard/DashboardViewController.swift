@@ -11,6 +11,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var loadmoreView: UIView!
     @IBOutlet weak var tryAgainView: UIView!
     @IBOutlet weak var tryAgain: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,17 +47,27 @@ class DashboardViewController: UIViewController {
                 let contentHeight = self.tableView.contentSize.height
                 let offsetY = contentOffset.y
                 let bottomOffset = contentHeight - tableViewHeight
-                if offsetY > 0 && offsetY >= bottomOffset - 100 {
+                if offsetY > 0 && offsetY >= bottomOffset - 600 {
                     return .just(())
                 } else {
                     return .empty()
                 }
             }
         
-        let refreshTrigger = Driver<Void>.merge(
-            viewWillAppear,
-            pull,
-            tryAgain.rx.tap.asDriver()
+        let searchInput = searchBar.rx.text.orEmpty
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .asDriverOnErrorJustComplete()
+        
+        let viewWillAppearString = viewWillAppear.map { "" }
+        let pullString = pull.map { "" }
+        let tryAgainString = tryAgain.rx.tap.asDriver().map { "" }
+        
+        let refreshTrigger = Driver<String>.merge(
+            viewWillAppearString,
+            pullString,
+            tryAgainString,
+            searchInput
         )
         
         let input = DashboardViewModel.Input(trigger: refreshTrigger, loadMore: loadMore, selection: tableView.rx.itemSelected.asDriver())
@@ -76,8 +87,9 @@ class DashboardViewController: UIViewController {
         
         output.error
             .drive(onNext: { [weak self] _ in
-                self?.tryAgainView.isHidden = false
-                self?.loadmoreView.isHidden = true
+                guard let self = self else { return }
+                self.tryAgainView.isHidden = false
+                self.loadmoreView.isHidden = true
             })
             .disposed(by: disposeBag)
         
@@ -89,12 +101,29 @@ class DashboardViewController: UIViewController {
         
         output.refresh
             .drive(onNext: { [weak self] refresh in
-                if refresh {
-                    self?.loadmoreView.isHidden = true
-                    self?.tryAgainView.isHidden = true
-                    self?.tableView.reloadData()
+                guard let self = self else { return }
+                if refresh.isEmpty {
+                    self.loadmoreView.isHidden = true
+                    self.tryAgainView.isHidden = true
+                    self.searchBar.text = ""
+                    self.searchBar.resignFirstResponder()
+                    self.tableView.reloadData()
                 }
             })
             .disposed(by: disposeBag)
     }
 }
+
+extension DashboardViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            searchBar.resignFirstResponder()
+        }
+    }
+}
+
+

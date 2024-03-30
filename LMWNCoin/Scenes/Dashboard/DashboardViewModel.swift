@@ -10,13 +10,13 @@ final class DashboardViewModel: ViewModelType {
     private let refreshRelay = BehaviorRelay<Bool>(value: false)
     
     struct Input {
-        let trigger: Driver<Void>
+        let trigger: Driver<String>
         let loadMore: Driver<Void>
         let selection: Driver<IndexPath>
     }
     struct Output {
         let fetching: Driver<Bool>
-        let refresh: Driver<Bool>
+        let refresh: Driver<String>
         let coins: Driver<[DashboardItemViewModel]>
         let selectedCoin: Driver<DashboardItemViewModel>
         let error: Driver<Error>
@@ -36,28 +36,29 @@ final class DashboardViewModel: ViewModelType {
         let activityIndicator = ActivityIndicator()
         let errorTracker = ErrorTracker()
         
-        let initialCoins = input.trigger.flatMapLatest {
-            self.refreshRelay.accept(true)
-            return self.usecase.listOfCoins(scopeLimit: "10", search: "")
+        let initialCoins = input.trigger.flatMapLatest { query in
+            self.usecase.listOfCoins(scopeLimit: "20", search: query)
                 .trackActivity(activityIndicator)
                 .trackError(errorTracker)
                 .asDriverOnErrorJustComplete()
                 .map { $0.map { DashboardItemViewModel(with: $0) } }
         }
         
-        let nextPageCoins = input.loadMore.flatMapLatest {
-            self.scopeLimit += 10
-            self.loadingMoreRelay.accept(true)
-            self.refreshRelay.accept(false)
-            return self.usecase.listOfCoins(scopeLimit: "\(self.scopeLimit)", search: "")
-                .trackActivity(activityIndicator)
-                .trackError(errorTracker)
-                .asDriverOnErrorJustComplete()
-                .map { $0.map { DashboardItemViewModel(with: $0) } }
-                .do(onNext: { _ in
-                    self.loadingMoreRelay.accept(false)
-                })
-        }
+        let nextPageCoins = input.loadMore
+            .withLatestFrom(input.trigger)
+            .flatMapLatest { query in
+                self.scopeLimit += 10
+                self.loadingMoreRelay.accept(true)
+                self.refreshRelay.accept(false)
+                return self.usecase.listOfCoins(scopeLimit: "\(self.scopeLimit)", search: query)
+                    .trackActivity(activityIndicator)
+                    .trackError(errorTracker)
+                    .asDriverOnErrorJustComplete()
+                    .map { $0.map { DashboardItemViewModel(with: $0) } }
+                    .do(onNext: { _ in
+                        self.loadingMoreRelay.accept(false)
+                    })
+            }
         
         let coins = Driver.merge(initialCoins, nextPageCoins)
         
@@ -70,7 +71,7 @@ final class DashboardViewModel: ViewModelType {
             .do(onNext: navigator.toDetail)
         
         return Output(fetching: fetching,
-                      refresh: refreshRelay.asDriver(),
+                      refresh: input.trigger.asDriver(),
                       coins: coins,
                       selectedCoin: selectedCoin,
                       error: errors,

@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="27" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3t4-Fh-bmI"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PRz-Dc-kJ6"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Or-vz-uYJ">
@@ -172,6 +172,7 @@
                     </view>
                     <connections>
                         <outlet property="loadmoreView" destination="Epg-cC-1sr" id="bFF-wo-vB5"/>
+                        <outlet property="searchBar" destination="2oe-wU-1mN" id="PLX-JB-MnS"/>
                         <outlet property="tableView" destination="2Or-vz-uYJ" id="8g5-Sc-KXf"/>
                         <outlet property="tryAgain" destination="QHg-jn-r7w" id="XRf-9P-5pO"/>
                         <outlet property="tryAgainView" destination="vyt-GS-Bu2" id="mvG-Tf-Nbk"/>
