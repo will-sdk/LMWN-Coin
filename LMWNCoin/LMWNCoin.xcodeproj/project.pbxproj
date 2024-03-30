@@ -10,6 +10,9 @@
 		489F84EB14E265C43EFCDFAA /* Pods_UseCases.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF4BCBF36A9434A695B3683 /* Pods_UseCases.framework */; };
 		4F9EF69BE29FC11C0521AA85 /* Pods_LMWNCoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7971125063F73F65ACB34D81 /* Pods_LMWNCoinTests.framework */; };
 		9C66944DDF831E7B13F45AD0 /* Pods_LMWNCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99DE292ABB418FFFB079E47 /* Pods_LMWNCoin.framework */; };
+		9E26E38B2BB6C4BF00DE1859 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E26E38A2BB6C4BF00DE1859 /* DetailViewController.swift */; };
+		9E26E38D2BB6CEB400DE1859 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E26E38C2BB6CEB400DE1859 /* DetailViewModel.swift */; };
+		9E26E38F2BB6CEDA00DE1859 /* DetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E26E38E2BB6CEDA00DE1859 /* DetailNavigator.swift */; };
 		9EE9627E2BB558AB0011EE6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE9627D2BB558AB0011EE6C /* AppDelegate.swift */; };
 		9EE962802BB558AB0011EE6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE9627F2BB558AB0011EE6C /* SceneDelegate.swift */; };
 		9EE962852BB558AB0011EE6C /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 9EE962842BB558AB0011EE6C /* Base */; };
@@ -98,6 +101,9 @@
 		35D26C94B4FCC0002EAD3515 /* Pods-Repositories.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Repositories.debug.xcconfig"; path = "Target Support Files/Pods-Repositories/Pods-Repositories.debug.xcconfig"; sourceTree = "<group>"; };
 		7971125063F73F65ACB34D81 /* Pods_LMWNCoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LMWNCoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FAE59F3E08004E010B8218 /* Pods-LMWNCoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMWNCoinTests.debug.xcconfig"; path = "Target Support Files/Pods-LMWNCoinTests/Pods-LMWNCoinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E26E38A2BB6C4BF00DE1859 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9E26E38C2BB6CEB400DE1859 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		9E26E38E2BB6CEDA00DE1859 /* DetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigator.swift; sourceTree = "<group>"; };
 		9EE9627A2BB558AB0011EE6C /* LMWNCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMWNCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE9627D2BB558AB0011EE6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EE9627F2BB558AB0011EE6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +191,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E26E3892BB6C49A00DE1859 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9E26E38A2BB6C4BF00DE1859 /* DetailViewController.swift */,
+				9E26E38C2BB6CEB400DE1859 /* DetailViewModel.swift */,
+				9E26E38E2BB6CEDA00DE1859 /* DetailNavigator.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		9EE962712BB558AB0011EE6C = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +320,7 @@
 		9EE962F02BB55A7B0011EE6C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9E26E3892BB6C49A00DE1859 /* Detail */,
 				9EE962832BB558AB0011EE6C /* Main.storyboard */,
 				9EE962882BB558AD0011EE6C /* LaunchScreen.storyboard */,
 				9EE962EF2BB55A7B0011EE6C /* Dashboard */,
@@ -727,8 +744,11 @@
 				9EE962F82BB55A7B0011EE6C /* DashboardViewController.swift in Sources */,
 				9EE962F72BB55A7B0011EE6C /* ViewModelType.swift in Sources */,
 				9EE963152BB55F150011EE6C /* DashboardViewModel.swift in Sources */,
+				9E26E38B2BB6C4BF00DE1859 /* DetailViewController.swift in Sources */,
 				9EE962F92BB55A7B0011EE6C /* DefaultDashboardNavigator.swift in Sources */,
 				9EE962802BB558AB0011EE6C /* SceneDelegate.swift in Sources */,
+				9E26E38F2BB6CEDA00DE1859 /* DetailNavigator.swift in Sources */,
+				9E26E38D2BB6CEB400DE1859 /* DetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

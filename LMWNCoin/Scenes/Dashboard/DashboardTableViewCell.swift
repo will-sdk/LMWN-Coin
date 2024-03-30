@@ -19,7 +19,7 @@ class DashboardTableViewCell: UITableViewCell {
     func bind(_ viewModel: DashboardItemViewModel) {
         self.titleLabel.text = viewModel.title
         self.detailsLabel.text = viewModel.subtitle
-        self.priceLabel.text = viewModel.coin.price
+        self.priceLabel.text = viewModel.coin?.price
         self.upScaleLabel.text = viewModel.change
         self.iconImageView.sd_setImage(with: viewModel.thumbnail, placeholderImage: UIImage(named: "img_placeholder"))
     }

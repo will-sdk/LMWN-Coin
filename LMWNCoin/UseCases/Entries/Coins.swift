@@ -17,11 +17,11 @@ public struct Coins: Codable {
     public let iconUrl: String?
     public let uuid: String?
     public let rank: Int?
-    public let sparkline: [String]?
+    public let sparkline: [String?]?
     public let coinrankingUrl: String?
     public let volume24h: String?
     public let btcPrice: String?
-    public let contractAddresses: [String]?
+    public let contractAddresses: [String?]?
     public let change: String?
     
     public init(symbol: String?,
@@ -31,11 +31,11 @@ public struct Coins: Codable {
                 iconUrl: String?,
                 uuid: String?,
                 rank: Int?,
-                sparkline: [String]?,
+                sparkline: [String?]?,
                 coinrankingUrl: String?,
                 volume24h: String?,
                 btcPrice: String?,
-                contractAddresses: [String]?,
+                contractAddresses: [String?]?,
                 change: String?) {
         self.symbol = symbol
         self.name = name
@@ -70,11 +70,11 @@ public struct Coins: Codable {
         iconUrl = try container.decode(String.self, forKey: .iconUrl)
         uuid = try container.decode(String.self, forKey: .uuid)
         rank = try container.decode(Int.self, forKey: .rank)
-        sparkline = try container.decode([String].self, forKey: .sparkline)
+        sparkline = try container.decode([String?].self, forKey: .sparkline).map { $0 ?? "" }
         coinrankingUrl = try container.decode(String.self, forKey: .coinrankingUrl)
         volume24h = try container.decode(String.self, forKey: .volume24h)
         btcPrice = try container.decode(String.self, forKey: .btcPrice)
-        contractAddresses = try container.decodeIfPresent([String].self, forKey: .contractAddresses)
+        contractAddresses = try container.decode([String?].self, forKey: .contractAddresses)
         change = try container.decodeIfPresent(String.self, forKey: .change)
     }
 }
