@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class DashboardViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -34,7 +35,7 @@ class DashboardViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
-        layout.itemSize = CGSize(width: 110, height: 140)
+        layout.itemSize = CGSize(width: 110, height: 160)
         topthreeCollectionView.collectionViewLayout = layout
     }
     
@@ -84,9 +85,51 @@ class DashboardViewController: UIViewController {
         let input = DashboardViewModel.Input(trigger: refreshTrigger, loadMore: loadMore, selection: tableView.rx.itemSelected.asDriver())
         let output = viewModel.transform(input: input)
         
-        output.coins.drive(tableView.rx.items(cellIdentifier: DashboardTableViewCell.reuseID, cellType: DashboardTableViewCell.self)) { tv, viewModel, cell in
-            cell.bind(viewModel)
-        }.disposed(by: disposeBag)
+        let dataSource = RxTableViewSectionedReloadDataSource<DashboardSectionModel>(
+            configureCell: { dataSource, tableView, indexPath, item in
+                switch item {
+                case .dashboardItem(let viewModel):
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.reuseID, for: indexPath) as? DashboardTableViewCell else {
+                        fatalError("Failed to dequeue DashboardTableViewCell")
+                    }
+                    cell.bind(viewModel)
+                    return cell
+                case .topThreeItem(let viewModel):
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: InvitefriendTableViewCell.reuseID, for: indexPath) as? InvitefriendTableViewCell else {
+                        fatalError("Failed to dequeue InvitefriendTableViewCell")
+                    }
+                    cell.bind(viewModel)
+                    return cell
+                }
+            },
+            titleForHeaderInSection: { dataSource, index in
+                // Customize section titles based on index
+                switch index {
+                case 0:
+                    return "Section1" // Title for the only section
+                default:
+                    return "Unknown Section"
+                }
+            }
+        )
+
+        output.coins
+            .map { allCoins in
+                let topThreeItems: [DashboardSectionModel.Item] = allCoins.map { DashboardSectionModel.Item.topThreeItem(viewModel: $0) }
+                return [
+                    DashboardSectionModel(title: "Section1", items: topThreeItems)
+                ]
+            }
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+
+
+        
+        
+//        output.coins.drive(tableView.rx.items(cellIdentifier: DashboardTableViewCell.reuseID, cellType: DashboardTableViewCell.self)) { tv, viewModel, cell in
+//            cell.bind(viewModel)
+//        }.disposed(by: disposeBag)
         
 //        output.coins.drive(tableView.rx.items(cellIdentifier: TopThreeTableViewCell.reuseID, cellType: TopThreeTableViewCell.self)) { tv, viewModel, cell in
 //            cell.bind(viewModel)
@@ -100,7 +143,7 @@ class DashboardViewController: UIViewController {
                 .map { $0.isEmpty }
                 .drive(onNext: { [weak self] isEmpty in
                     guard let self = self else { return }
-                    topthreeCollectionView.frame.size.height = isEmpty ? 0 : 140
+                    topthreeCollectionView.frame.size.height = isEmpty ? 0 : 160
                     self.view.layoutIfNeeded()
                 })
                 .disposed(by: disposeBag)

@@ -16,7 +16,7 @@ class DashboardTableViewCell: UITableViewCell {
     @IBOutlet weak var upScaleLabel: UILabel!
     @IBOutlet weak var iconImageView: UIImageView!
     
-    func bind(_ viewModel: DashboardItemViewModel) {
+    func bind(_ viewModel: DashboardItemModel) {
         self.titleLabel.text = viewModel.title
         self.detailsLabel.text = viewModel.subtitle
         self.priceLabel.text = viewModel.coin?.price

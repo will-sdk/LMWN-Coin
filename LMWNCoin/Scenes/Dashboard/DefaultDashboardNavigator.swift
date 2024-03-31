@@ -4,7 +4,7 @@ import UseCases
 import SafariServices
 
 protocol DashboardNavigator {
-    func toDetail(_ dashboardItemViewModel: DashboardItemViewModel?)
+    func toDetail(_ dashboardItemViewModel: DashboardItemModel?)
 }
 
 class DefaultDashboardNavigator: DashboardNavigator {
@@ -26,7 +26,7 @@ class DefaultDashboardNavigator: DashboardNavigator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func toDetail(_ dashboardItemViewModel: DashboardItemViewModel?) {
+    func toDetail(_ dashboardItemViewModel: DashboardItemModel?) {
         let navigator = DefaultDetailNavigator(navigationController: navigationController)
         let viewModel = DetailViewModel(dashboardItem: dashboardItemViewModel, navigator: navigator)
         let vc = storyBoard.instantiateViewController(ofType: DetailViewController.self)

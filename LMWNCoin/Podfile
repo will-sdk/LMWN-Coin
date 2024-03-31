@@ -21,6 +21,10 @@ def rx_alamofire
   pod 'RxAlamofire'
 end
 
+def rx_datasources
+  pod 'RxDataSources', '~> 5.0'
+end
+
 def sbweb_image
   pod 'SDWebImage', '~> 5.0'
 end
@@ -39,6 +43,7 @@ target 'LMWNCoin' do
   use_frameworks!
   rx_cocoa
   rx_swift
+  rx_datasources
   svgkit_image
   sbweb_image
   

@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
             .disposed(by: disposBag)
     }
     
-    var cityBinding: Binder<DashboardItemViewModel> {
+    var cityBinding: Binder<DashboardItemModel> {
         return Binder(self, binding: { (_ , city) in
             self.setupMapViewBy(coin: city.coin)
         })

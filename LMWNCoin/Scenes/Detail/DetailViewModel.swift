@@ -4,10 +4,10 @@ import RxSwift
 import RxCocoa
 
 final class DetailViewModel {
-    private let dashboardItem: DashboardItemViewModel?
+    private let dashboardItem: DashboardItemModel?
     private let navigator: DetailNavigator
     
-    init(dashboardItem: DashboardItemViewModel?, navigator: DetailNavigator) {
+    init(dashboardItem: DashboardItemModel?, navigator: DetailNavigator) {
         self.dashboardItem = dashboardItem
         self.navigator = navigator
     }
@@ -15,8 +15,8 @@ final class DetailViewModel {
     func transform(input: Input) -> Output {
         let dashboardItem = input.trigger
             .map { [weak self] in
-                self?.dashboardItem ?? DashboardItemViewModel(with: nil, isQuery: false) }
-            .asDriver(onErrorJustReturn: DashboardItemViewModel(with: nil, isQuery: false))
+                self?.dashboardItem ?? DashboardItemModel(with: nil, isQuery: false) }
+            .asDriver(onErrorJustReturn: DashboardItemModel(with: nil, isQuery: false))
         
         return Output(dashboardItem: dashboardItem)
     }
@@ -28,6 +28,6 @@ extension DetailViewModel {
     }
 
     struct Output {
-        let dashboardItem: Driver<DashboardItemViewModel>
+        let dashboardItem: Driver<DashboardItemModel>
     }
 }

@@ -17,9 +17,9 @@ final class DashboardViewModel: ViewModelType {
     struct Output {
         let fetching: Driver<Bool>
         let refresh: Driver<String>
-        let topthreeCoins: Driver<[DashboardItemViewModel]>
-        let coins: Driver<[DashboardItemViewModel]>
-        let selectedCoin: Driver<DashboardItemViewModel>
+        let topthreeCoins: Driver<[DashboardItemModel]>
+        let coins: Driver<[DashboardItemModel]>
+        let selectedCoin: Driver<DashboardItemModel>
         let error: Driver<Error>
         let loadingMore: Driver<Bool>
     }
@@ -42,7 +42,7 @@ final class DashboardViewModel: ViewModelType {
                 .trackActivity(activityIndicator)
                 .trackError(errorTracker)
                 .asDriverOnErrorJustComplete()
-                .map { $0.map { DashboardItemViewModel(with: $0, isQuery: query.isEmpty) } }
+                .map { $0.map { DashboardItemModel(with: $0, isQuery: query.isEmpty) } }
         }
         
         let nextPageCoins = input.loadMore
@@ -55,7 +55,7 @@ final class DashboardViewModel: ViewModelType {
                     .trackActivity(activityIndicator)
                     .trackError(errorTracker)
                     .asDriverOnErrorJustComplete()
-                    .map { $0.map { DashboardItemViewModel(with: $0, isQuery: query.isEmpty) } }
+                    .map { $0.map { DashboardItemModel(with: $0, isQuery: query.isEmpty) } }
                     .do(onNext: { _ in
                         self.loadingMoreRelay.accept(false)
                     })
@@ -66,13 +66,13 @@ final class DashboardViewModel: ViewModelType {
         let fetching = activityIndicator.asDriver()
         let errors = errorTracker.asDriver()
         let selectedCoin = input.selection
-            .withLatestFrom(coins) { (indexPath, coins) -> DashboardItemViewModel in
+            .withLatestFrom(coins) { (indexPath, coins) -> DashboardItemModel in
                 return coins[indexPath.row]
             }
             .do(onNext: navigator.toDetail)
         
         let topThreeCoins = coins
-            .map { coin -> [DashboardItemViewModel] in
+            .map { coin -> [DashboardItemModel] in
                 guard let isQuery = coin.first?.isQuery, isQuery else {
                     return []
                 }
