@@ -36,7 +36,7 @@
                                         <size key="itemSize" width="128" height="128"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                     <view key="backgroundView" contentMode="scaleToFill" id="mOk-dG-bda">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="182"/>
@@ -93,7 +93,7 @@
                                     </view>
                                     <cells>
                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopThreeCollectionViewCell" id="AaM-Cx-wGG" customClass="TopThreeCollectionViewCell" customModule="LMWNCoin" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="27" width="128" height="128"/>
+                                            <rect key="frame" x="20" y="27" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dJi-tE-wdK">
                                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -178,14 +178,15 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Epg-cC-1sr">
                                             <rect key="frame" x="20" y="8" width="353" height="51"/>
                                             <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="SlD-VE-qj9">
-                                                    <rect key="frame" x="110" y="15" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="SlD-VE-qj9">
+                                                    <rect key="frame" x="166.66666666666666" y="15.666666666666668" width="20" height="20.000000000000004"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstItem="SlD-VE-qj9" firstAttribute="centerY" secondItem="Epg-cC-1sr" secondAttribute="centerY" id="2pi-AX-sfw"/>
                                                 <constraint firstAttribute="height" constant="51" id="7NQ-yJ-h1B"/>
+                                                <constraint firstItem="SlD-VE-qj9" firstAttribute="centerX" secondItem="Epg-cC-1sr" secondAttribute="centerX" id="jzQ-M8-WLO"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyt-GS-Bu2">
@@ -369,7 +370,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2Or-vz-uYJ" firstAttribute="top" secondItem="2oe-wU-1mN" secondAttribute="bottom" id="FZT-Vk-vjt"/>
                             <constraint firstItem="2oe-wU-1mN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-32" id="LDC-ry-mo1"/>
@@ -574,9 +575,6 @@
         <image name="close" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

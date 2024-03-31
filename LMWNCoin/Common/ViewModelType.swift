@@ -31,4 +31,48 @@ extension UIColor {
     }
 }
 
+extension UILabel {
+    func setFormattedCurrency(fromString string: String, currencySymbol: String = "$", maximumFractionDigits: Int = 2) {
+        guard let number = Double(string) else {
+            self.text = "Invalid number format."
+            return
+        }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = currencySymbol
+        formatter.maximumFractionDigits = maximumFractionDigits
+        
+        if let formattedString = formatter.string(from: NSNumber(value: number)) {
+            self.text = formattedString
+        } else {
+            self.text = "Error formatting number."
+        }
+    }
+}
+
+extension UILabel {
+    func setTrillionFormattedText(from string: String, currencySymbol: String = "$") {
+        guard let number = Double(string) else {
+            self.text = "Invalid number format."
+            return
+        }
+
+        let trillion = 1_000_000_000_000.0
+        let trillionValue = number / trillion
+
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = currencySymbol
+
+        if let formattedString = formatter.string(from: NSNumber(value: trillionValue)) {
+            self.text = formattedString + " trillion"
+        } else {
+            self.text = "Error formatting number."
+        }
+    }
+}
+
+
+
 

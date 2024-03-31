@@ -55,9 +55,9 @@ class DetailViewController: UIViewController {
         titleLabel.text = coin?.name ?? "N/A"
         titleValueLabel.text = coin?.symbol ?? ""
         priceLabel.text = "PRICE"
-        priceValueLabel.text = coin?.price ?? ""
+        priceValueLabel.setFormattedCurrency(fromString: coin?.price ?? "", currencySymbol: "$", maximumFractionDigits: 5)
         marketCapLabel.text = "MARKET CAP"
-        marletCapValueLabel.text = coin?.marketCap ?? ""
+        marletCapValueLabel.setTrillionFormattedText(from: coin?.marketCap ?? "", currencySymbol: "$")
         detailTextView.text = coin?.name ?? "N?A"
         
         iconImgage.sd_setImage(with: URL(string: coin?.iconUrl ?? ""), placeholderImage: UIImage(named: "img_placeholder"))
@@ -70,7 +70,7 @@ class DetailViewController: UIViewController {
         
         gotoWebsiteButton.rx.tap
             .bind { [weak self] in
-                guard let self = self else { return }
+                guard let _ = self else { return }
                 if let url = URL(string: coin?.coinrankingUrl ?? "") {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
