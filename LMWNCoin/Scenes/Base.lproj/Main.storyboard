@@ -277,8 +277,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blK-kc-t1S">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="97"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card_landscape" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-as-IYE">
-                                                            <rect key="frame" x="-2" y="0.0" width="397" height="92"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Card_landscape" translatesAutoresizingMaskIntoConstraints="NO" id="QFe-as-IYE">
+                                                            <rect key="frame" x="8" y="0.0" width="377" height="92"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="92" id="Nq7-Ub-3PF"/>
                                                             </constraints>
@@ -336,8 +336,8 @@
                                                         <constraint firstItem="exj-wa-blW" firstAttribute="top" secondItem="blK-kc-t1S" secondAttribute="top" constant="13" id="9qK-3P-EfG"/>
                                                         <constraint firstItem="4pH-iS-VS9" firstAttribute="top" secondItem="blK-kc-t1S" secondAttribute="top" constant="22" id="IXy-Zl-Kam"/>
                                                         <constraint firstItem="9WX-r6-WLb" firstAttribute="leading" secondItem="4pH-iS-VS9" secondAttribute="trailing" constant="14" id="Ju8-dn-gwL"/>
-                                                        <constraint firstItem="QFe-as-IYE" firstAttribute="leading" secondItem="blK-kc-t1S" secondAttribute="leading" constant="-2" id="LGU-o1-NVE"/>
-                                                        <constraint firstAttribute="trailing" secondItem="QFe-as-IYE" secondAttribute="trailing" constant="-2" id="P2w-eR-Kl4"/>
+                                                        <constraint firstItem="QFe-as-IYE" firstAttribute="leading" secondItem="blK-kc-t1S" secondAttribute="leading" constant="8" id="LGU-o1-NVE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QFe-as-IYE" secondAttribute="trailing" constant="8" id="P2w-eR-Kl4"/>
                                                         <constraint firstItem="xc5-fG-1Wq" firstAttribute="top" secondItem="blK-kc-t1S" secondAttribute="top" constant="13" id="S7v-r0-1yj"/>
                                                         <constraint firstAttribute="trailing" secondItem="xc5-fG-1Wq" secondAttribute="trailing" constant="20" symbolic="YES" id="Slt-fV-VZS"/>
                                                         <constraint firstItem="QFe-as-IYE" firstAttribute="top" secondItem="blK-kc-t1S" secondAttribute="top" id="YbG-Wb-zv2"/>
