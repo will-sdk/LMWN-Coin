@@ -1,14 +1,8 @@
-//
-//  TopThreeItemViewModel.swift
-//  LMWNCoin
-//
-//  Created by kowit nanumchill on 30/3/2567 BE.
-//
 
 import Foundation
 import UseCases
 
-struct TopThreeItemModel   {
+struct TopThreeItemModel {
     let title: String
     let subtitle : String
     let change: String

@@ -1,9 +1,3 @@
-//
-//  Date+Ext.swift
-//  RxswiftCleanArchitecture
-//
-//  Created by Willy on 08/01/2023.
-//
 
 import Foundation
 

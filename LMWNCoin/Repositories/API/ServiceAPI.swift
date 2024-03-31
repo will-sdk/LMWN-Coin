@@ -22,7 +22,6 @@ final class ServiceAPI<T: Decodable> {
         let scopeParam = scopeLimit.isEmpty ? "" : "?scopeLimit=\(scopeLimit)"
         let searchParam = search.isEmpty ? "" : "&search=\(search)"
         let absolutePath = "\(endpoint)\(scopeParam)\(searchParam)"
-        print("absolutePath \(absolutePath)")
         return RxAlamofire
             .request(.get, absolutePath, headers: header)
             .debug()

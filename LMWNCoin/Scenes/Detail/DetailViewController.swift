@@ -77,5 +77,4 @@ class DetailViewController: UIViewController {
             }
             .disposed(by: disposeBag)
     }
-    
 }
