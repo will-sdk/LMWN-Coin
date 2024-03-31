@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class DashboardViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -12,7 +13,6 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var tryAgainView: UIView!
     @IBOutlet weak var tryAgain: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var topthreeCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -24,8 +24,7 @@ class DashboardViewController: UIViewController {
     
     private func configureTableView() {
         tableView.refreshControl = UIRefreshControl()
-        tableView.estimatedRowHeight = 102
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = 100
         loadmoreView.isHidden = true
         tryAgainView.isHidden = true
     }
@@ -34,7 +33,7 @@ class DashboardViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
-        layout.itemSize = CGSize(width: 110, height: 140)
+        layout.itemSize = CGSize(width: 110, height: 180)
         topthreeCollectionView.collectionViewLayout = layout
     }
     
@@ -84,10 +83,46 @@ class DashboardViewController: UIViewController {
         let input = DashboardViewModel.Input(trigger: refreshTrigger, loadMore: loadMore, selection: tableView.rx.itemSelected.asDriver())
         let output = viewModel.transform(input: input)
         
-        output.coins.drive(tableView.rx.items(cellIdentifier: DashboardTableViewCell.reuseID, cellType: DashboardTableViewCell.self)) { tv, viewModel, cell in
-            cell.bind(viewModel)
-        }.disposed(by: disposeBag)
-        
+        let dataSource = RxTableViewSectionedReloadDataSource<DashboardSectionModel>(
+            configureCell: { dataSource, tableView, indexPath, item in
+                switch item {
+                case .dashboardItem(let viewModel):
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.reuseID, for: indexPath) as? DashboardTableViewCell else {
+                        fatalError("Failed to dequeue DashboardTableViewCell")
+                    }
+                    cell.bind(viewModel)
+                    return cell
+                case .inviteFriendItem:
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: InvitefriendTableViewCell.reuseID, for: indexPath) as? InvitefriendTableViewCell else {
+                        fatalError("Failed to dequeue InvitefriendTableViewCell")
+                    }
+                    return cell
+                }
+            },
+            titleForHeaderInSection: { dataSource, index in
+                switch index {
+                default:
+                    return "Buy, sell and hold crypto"
+                }
+            }
+        )
+
+        let inviteFriendIndices = Set([5, 10, 20, 40, 80, 160])
+
+        output.coins
+            .map { allCoins -> [DashboardSectionModel] in
+                var dashboardItems: [DashboardSectionModel.Item] = []
+                for (index, coin) in allCoins.enumerated() {
+                    if inviteFriendIndices.contains(index + 1) {
+                        dashboardItems.append(.inviteFriendItem)
+                    }
+                    dashboardItems.append(.dashboardItem(viewModel: coin))
+                }
+                return [DashboardSectionModel(title: "Buy, sell and hold crypto", items: dashboardItems)]
+            }
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
         output.topthreeCoins.drive(topthreeCollectionView.rx.items(cellIdentifier: TopThreeCollectionViewCell.reuseID, cellType: TopThreeCollectionViewCell.self)) { cv, viewModel, cell in
                 cell.bind(viewModel)
             }.disposed(by: disposeBag)
@@ -96,7 +131,7 @@ class DashboardViewController: UIViewController {
                 .map { $0.isEmpty }
                 .drive(onNext: { [weak self] isEmpty in
                     guard let self = self else { return }
-                    topthreeCollectionView.frame.size.height = isEmpty ? 0 : 140
+                    topthreeCollectionView.frame.size.height = isEmpty ? 0 : 180
                     self.view.layoutIfNeeded()
                 })
                 .disposed(by: disposeBag)

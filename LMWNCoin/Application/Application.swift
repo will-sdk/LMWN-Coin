@@ -15,15 +15,15 @@ final class Application {
     func configureMainInterface(in window: UIWindow) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let footballNavigationController = UINavigationController()
+        let dashboardNavigationController = UINavigationController()
         
-        let footballNavigator = DefaultDashboardNavigator(
-            navigationController: footballNavigationController,
+        let dashboardNavigator = DefaultDashboardNavigator(
+            navigationController: dashboardNavigationController,
             storyBoard: storyboard,
             usecase: useCaseProvider)
         
-        window.rootViewController = footballNavigationController
+        window.rootViewController = dashboardNavigationController
         window.makeKeyAndVisible()
-        footballNavigator.toFixture()
+        dashboardNavigator.toFixture()
     }
 }

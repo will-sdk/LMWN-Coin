@@ -2,7 +2,7 @@
 import UIKit
 
 protocol DetailNavigator {
-    func toCitySearch()
+    func toDashboard()
 }
 
 final class DefaultDetailNavigator: DetailNavigator {
@@ -12,7 +12,7 @@ final class DefaultDetailNavigator: DetailNavigator {
         self.navigationController = navigationController
     }
 
-    func toCitySearch() {
+    func toDashboard() {
         navigationController.popViewController(animated: true)
     }
 }

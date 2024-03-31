@@ -17,9 +17,9 @@ final class DashboardViewModel: ViewModelType {
     struct Output {
         let fetching: Driver<Bool>
         let refresh: Driver<String>
-        let topthreeCoins: Driver<[DashboardItemViewModel]>
-        let coins: Driver<[DashboardItemViewModel]>
-        let selectedCoin: Driver<DashboardItemViewModel>
+        let topthreeCoins: Driver<[DashboardItemModel]>
+        let coins: Driver<[DashboardItemModel]>
+        let selectedCoin: Driver<(DashboardItemModel, Bool)>
         let error: Driver<Error>
         let loadingMore: Driver<Bool>
     }
@@ -42,7 +42,7 @@ final class DashboardViewModel: ViewModelType {
                 .trackActivity(activityIndicator)
                 .trackError(errorTracker)
                 .asDriverOnErrorJustComplete()
-                .map { $0.map { DashboardItemViewModel(with: $0, isQuery: query.isEmpty) } }
+                .map { $0.map { DashboardItemModel(with: $0, isQuery: query.isEmpty) } }
         }
         
         let nextPageCoins = input.loadMore
@@ -55,24 +55,46 @@ final class DashboardViewModel: ViewModelType {
                     .trackActivity(activityIndicator)
                     .trackError(errorTracker)
                     .asDriverOnErrorJustComplete()
-                    .map { $0.map { DashboardItemViewModel(with: $0, isQuery: query.isEmpty) } }
+                    .map { $0.map { DashboardItemModel(with: $0, isQuery: query.isEmpty) } }
                     .do(onNext: { _ in
                         self.loadingMoreRelay.accept(false)
                     })
             }
         
         let coins = Driver.merge(initialCoins, nextPageCoins)
-        
         let fetching = activityIndicator.asDriver()
         let errors = errorTracker.asDriver()
+        let inviteFriendIndices = Set([5, 10, 20, 40, 80, 160])
         let selectedCoin = input.selection
-            .withLatestFrom(coins) { (indexPath, coins) -> DashboardItemViewModel in
-                return coins[indexPath.row]
+            .withLatestFrom(coins) { (indexPath, coins) -> (DashboardItemModel, Bool) in
+                let index = indexPath.row
+                switch index {
+                case 0...3:
+                    return (coins[index], false)
+                case 5...9:
+                    return (coins[index - 1], false)
+                case 11...20:
+                    return (coins[index - 2], false)
+                case 22...41:
+                    return (coins[index - 3], false)
+                case 43...83:
+                    return (coins[index - 4], false)
+                case 85...159:
+                    return (coins[index - 5], false)
+                default:
+                    return (coins[1], true)
+                }
             }
-            .do(onNext: navigator.toDetail)
+            .do { model, invite in
+                if invite {
+                    self.navigator.toInvitefriend()
+                } else {
+                    self.navigator.toDetail(model)
+                }
+            }
         
         let topThreeCoins = coins
-            .map { coin -> [DashboardItemViewModel] in
+            .map { coin -> [DashboardItemModel] in
                 guard let isQuery = coin.first?.isQuery, isQuery else {
                     return []
                 }

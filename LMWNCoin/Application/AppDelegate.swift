@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  LMWNCoin
-//
-//  Created by kowit nanumchill on 28/3/2567 BE.
-//
 
 import UIKit
 
