@@ -10,7 +10,7 @@ struct DashboardSectionModel {
     
     enum Item {
         case dashboardItem(viewModel: DashboardItemModel)
-        case topThreeItem(viewModel: DashboardItemModel)
+        case inviteFriendItem
         // Add other item types as needed
     }
 }
