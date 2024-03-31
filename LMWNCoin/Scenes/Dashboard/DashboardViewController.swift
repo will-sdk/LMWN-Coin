@@ -88,6 +88,10 @@ class DashboardViewController: UIViewController {
             cell.bind(viewModel)
         }.disposed(by: disposeBag)
         
+//        output.coins.drive(tableView.rx.items(cellIdentifier: TopThreeTableViewCell.reuseID, cellType: TopThreeTableViewCell.self)) { tv, viewModel, cell in
+//            cell.bind(viewModel)
+//        }.disposed(by: disposeBag)
+        
         output.topthreeCoins.drive(topthreeCollectionView.rx.items(cellIdentifier: TopThreeCollectionViewCell.reuseID, cellType: TopThreeCollectionViewCell.self)) { cv, viewModel, cell in
                 cell.bind(viewModel)
             }.disposed(by: disposeBag)
