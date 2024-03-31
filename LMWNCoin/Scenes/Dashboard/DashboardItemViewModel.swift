@@ -27,6 +27,7 @@ struct DashboardItemModel {
     let change: String
     let thumbnail: URL?
     let isQuery: Bool
+    let isUpScale : Bool
     
     let coin: Coins?
     init (with coin: Coins?, isQuery: Bool) {
@@ -35,8 +36,10 @@ struct DashboardItemModel {
         self.subtitle = coin?.symbol ?? "N/A"
         if let changeValue = coin?.change, let changeDouble = Double(changeValue) {
             self.change = changeDouble > 0 ? "↑ \(changeValue)" : "↓ \(changeValue)"
+            self.isUpScale = changeDouble > 0 ? true : false
         } else {
             self.change = "N/A"
+            self.isUpScale = false
         }
         self.thumbnail = URL(string: coin?.iconUrl ?? "")
         self.isQuery = isQuery

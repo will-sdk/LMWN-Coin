@@ -12,5 +12,6 @@ class TopThreeCollectionViewCell: UICollectionViewCell {
         self.detailsLabel.text = viewModel.subtitle
         self.upScaleLabel.text = viewModel.change
         self.iconImageView.sd_setImage(with: viewModel.thumbnail, placeholderImage: UIImage(named: "img_placeholder"))
+        self.upScaleLabel.textColor = viewModel.isUpScale ? UIColor(hexString: "#13BC24") : UIColor(hexString: "#F82D2D")
     }
 }
