@@ -34,7 +34,7 @@ class DashboardViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
-        layout.itemSize = CGSize(width: 110, height: 160)
+        layout.itemSize = CGSize(width: 110, height: 180)
         topthreeCollectionView.collectionViewLayout = layout
     }
     
@@ -132,7 +132,7 @@ class DashboardViewController: UIViewController {
                 .map { $0.isEmpty }
                 .drive(onNext: { [weak self] isEmpty in
                     guard let self = self else { return }
-                    topthreeCollectionView.frame.size.height = isEmpty ? 0 : 160
+                    topthreeCollectionView.frame.size.height = isEmpty ? 0 : 180
                     self.view.layoutIfNeeded()
                 })
                 .disposed(by: disposeBag)
