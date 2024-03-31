@@ -1,0 +1,67 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '15.0'
+
+def rx_swift
+  pod 'RxSwift', '~> 6.5.0'
+end
+
+def rx_cocoa
+  pod 'RxCocoa', '~> 6.5.0'
+end
+
+def rx_test
+  pod 'RxTest'
+end
+
+def alamofire
+  pod 'Alamofire'
+end
+
+def rx_alamofire
+  pod 'RxAlamofire'
+end
+
+def rx_datasources
+  pod 'RxDataSources', '~> 5.0'
+end
+
+def sbweb_image
+  pod 'SDWebImage', '~> 5.0'
+end
+
+def svgkit_image
+
+end
+
+def test_pods
+  rx_cocoa
+  rx_swift
+  rx_test
+end
+
+target 'LMWNCoin' do
+  use_frameworks!
+  rx_cocoa
+  rx_swift
+  rx_datasources
+  svgkit_image
+  sbweb_image
+  
+  target 'LMWNCoinTests' do
+    inherit! :search_paths
+    test_pods
+  end
+end
+
+target 'UseCases' do
+  use_frameworks!
+  rx_swift
+end
+
+target 'Repositories' do
+    use_frameworks!
+    rx_swift
+    rx_cocoa
+    alamofire
+    rx_alamofire
+end

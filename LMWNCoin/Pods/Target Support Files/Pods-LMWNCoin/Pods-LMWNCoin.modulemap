@@ -1,0 +1,6 @@
+framework module Pods_LMWNCoin {
+  umbrella header "Pods-LMWNCoin-umbrella.h"
+
+  export *
+  module * { export * }
+}
