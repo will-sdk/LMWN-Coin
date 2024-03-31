@@ -19,7 +19,7 @@ final class DashboardViewModel: ViewModelType {
         let refresh: Driver<String>
         let topthreeCoins: Driver<[DashboardItemModel]>
         let coins: Driver<[DashboardItemModel]>
-        let selectedCoin: Driver<DashboardItemModel>
+        let selectedCoin: Driver<(DashboardItemModel, Bool)>
         let error: Driver<Error>
         let loadingMore: Driver<Bool>
     }
@@ -62,14 +62,36 @@ final class DashboardViewModel: ViewModelType {
             }
         
         let coins = Driver.merge(initialCoins, nextPageCoins)
-        
         let fetching = activityIndicator.asDriver()
         let errors = errorTracker.asDriver()
+        let inviteFriendIndices = Set([5, 10, 20, 40, 80, 160])
         let selectedCoin = input.selection
-            .withLatestFrom(coins) { (indexPath, coins) -> DashboardItemModel in
-                return coins[indexPath.row]
+            .withLatestFrom(coins) { (indexPath, coins) -> (DashboardItemModel, Bool) in
+                let index = indexPath.row
+                switch index {
+                case 0...3:
+                    return (coins[index], false)
+                case 5...9:
+                    return (coins[index - 1], false)
+                case 11...20:
+                    return (coins[index - 2], false)
+                case 22...41:
+                    return (coins[index - 3], false)
+                case 43...83:
+                    return (coins[index - 4], false)
+                case 85...159:
+                    return (coins[index - 5], false)
+                default:
+                    return (coins[1], true)
+                }
             }
-            .do(onNext: navigator.toDetail)
+            .do { model, invite in
+                if invite {
+                    self.navigator.toInvitefriend()
+                } else {
+                    self.navigator.toDetail(model)
+                }
+            }
         
         let topThreeCoins = coins
             .map { coin -> [DashboardItemModel] in

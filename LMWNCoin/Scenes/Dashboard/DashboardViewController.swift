@@ -13,7 +13,6 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var tryAgainView: UIView!
     @IBOutlet weak var tryAgain: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var topthreeCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -102,40 +101,29 @@ class DashboardViewController: UIViewController {
                 }
             },
             titleForHeaderInSection: { dataSource, index in
-                // Customize section titles based on index
                 switch index {
-                case 0:
-                    return "Section1" // Title for the only section
                 default:
-                    return "Unknown Section"
+                    return "Buy, sell and hold crypto"
                 }
             }
         )
 
         let inviteFriendIndices = Set([5, 10, 20, 40, 80, 160])
 
-        // Map coins to dashboard items and include invite friend items at the specified indices
         output.coins
             .map { allCoins -> [DashboardSectionModel] in
                 var dashboardItems: [DashboardSectionModel.Item] = []
                 for (index, coin) in allCoins.enumerated() {
-                    // Check if the current index is in the invite friend indices set
                     if inviteFriendIndices.contains(index + 1) {
-                        // Append invite friend item
                         dashboardItems.append(.inviteFriendItem)
                     }
-                    // Append dashboard item for each coin
                     dashboardItems.append(.dashboardItem(viewModel: coin))
                 }
-                // Create and return a single section with the items
                 return [DashboardSectionModel(title: "Buy, sell and hold crypto", items: dashboardItems)]
             }
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
-
-
-        
         output.topthreeCoins.drive(topthreeCollectionView.rx.items(cellIdentifier: TopThreeCollectionViewCell.reuseID, cellType: TopThreeCollectionViewCell.self)) { cv, viewModel, cell in
                 cell.bind(viewModel)
             }.disposed(by: disposeBag)
